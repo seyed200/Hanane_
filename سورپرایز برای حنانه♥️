@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>اعتراف خاص به حنانه 😏</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0d0d0d;
+      font-family: "Tahoma", sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      direction: rtl;
+    }
+
+    .screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+      z-index: 1;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background: #ff4081;
+      border: none;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #e91e63;
+      transform: scale(1.05);
+    }
+
+    #letter {
+      position: fixed;
+      bottom: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(6px);
+      padding: 30px;
+      border-radius: 20px 20px 0 0;
+      font-size: 20px;
+      line-height: 2;
+      box-shadow: 0 -8px 30px rgba(255, 64, 129, 0.4);
+      z-index: 10;
+      transition: bottom 1s ease;
+    }
+
+    #letter.show {
+      bottom: 0;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatUp 6s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -10px;
+    }
+
+    @keyframes floatUp {
+      0% {
+        bottom: -20px;
+        opacity: 1;
+      }
+      100% {
+        bottom: 100%;
+        opacity: 0;
+        transform: rotate(720deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <h1>حنانه جون... یه چیزی باید بهت بگم 😳</h1>
+    <button onclick="showLetter()">بازش کن عشقم 😬</button>
+  </div>
+
+  <div class="hearts" id="hearts-container"></div>
+
+  <div id="letter">
+    خب راستش... من دیگه نمی‌تونم جلوی خودمو بگیرم 😐<br>
+    باید اعتراف کنم که... 😳<br><br>
+
+    تو باعث شدی من...<br>
+    دیگه هیچ‌وقت به هیچ دختری نگاه نکنم 😏💘<br><br>
+
+    آخه تویی تنها دلیلی که قلبم هنوز می‌تپه... ❤️<br>
+    لبخندت، صدات، نگاهت... همه‌ش جادوعه، جادوی تو! 🥺<br><br>
+
+    فقط خواستم بگم:<br>
+    <strong style="font-size: 26px;">دوستت دارم تا آخر دنیا و حتی بعدش 😚❤️</strong><br><br>
+
+    — امضا: قاسم، دیوونه‌ی تو
+  </div>
+
+  <script>
+    function showLetter() {
+      document.getElementById('letter').classList.add("show");
+
+      for (let i = 0; i < 50; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+        document.getElementById("hearts-container").appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+      }
+    }
+  </script>
+</body>
+</html>
